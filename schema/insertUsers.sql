@@ -1,0 +1,10 @@
+INSERT INTO Users (username, password) VALUES('denis', 'testpassword');
+INSERT INTO Users (username, password) VALUES('suzanne', 'testpassword');
+INSERT INTO Users (username, password) VALUES('phil', 'testpassword');
+INSERT INTO Users (username, password) VALUES('christianne', 'testpassword');
+INSERT INTO Users (username, password) VALUES('aaron', 'testpassword');
+INSERT INTO Users (username, password) VALUES('julianne', 'testpassword');
+INSERT INTO Users (username, password) VALUES('greg', 'testpassword');
+INSERT INTO Users (username, password) VALUES('ian', 'testpassword');
+INSERT INTO Users (username, password) VALUES('ben', 'testpassword');
+INSERT INTO Users (username, password) VALUES('kirk', 'testpassword');
