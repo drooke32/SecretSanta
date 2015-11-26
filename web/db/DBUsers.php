@@ -1,38 +1,45 @@
 <?php
-include "DBGateway.php";
+require "DBGateway.php";
+require "Encryptor.php";
 
 function AddUser($name, $password){
     $cleanName = filter_var($name, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH | FILTER_FLAG_STRIP_LOW);
-    //Validate the data
     if(!GetUserByName($cleanName)){
-        //clean the input
-        //hash the password
-        //call the query
-        //check for errors 
+        $hashedPassword = password_Hash($password, PASSWORD_DEFAULT);
+        return DBQuery("INSERT INTO Users (username, password) VALUES('".$cleanName."', '".$hashedPassword."')");
     }
-    //user already exists
     return false;
 }
 
 function GetUserByID($userID){
-    //clean the input
-    //call the query
-    //check for errors
-    return false;
+    return DBSelect("SELECT * FROM Users WHERE userID=".$userID);
 }
 
 function GetUserByName($name){
-    //clean the input
-    $cleanName = trim($name);
-    $cleanName = filter_var($cleanName, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH | FILTER_FLAG_STRIP_LOW);
-    //call the query
+    $cleanName = filter_var($name, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH | FILTER_FLAG_STRIP_LOW);
     return DBSelect("SELECT * FROM Users WHERE username='".$cleanName."'");
 }
 
-function GetSecretUser($hashedID){
-    //unhash the ID
-    //clean input?
-    //call Query
-    //check for errors
+function GetSecretUser($encryptedID){
+    if($userID = DecryptUser($encryptedID)){
+        return GetUserByID($userID);
+    }
     return false;
+}
+
+function SaveSecretUser($userID, $secretID){
+    $encryptedID = EncryptUser($secretID);
+    return DBQuery("UPDATE Users SET secretPerson='".$encryptedID."' WHERE userID=".$userID);
+}
+
+function GetAllUserIDs(){
+    return DBSelect("SELECT userID FROM Users");
+}
+
+/**
+ * 
+ * @return result
+ */
+function ClearSecretUsers(){
+    return DBQuery("UPDATE Users SET secretPerson=null");
 }

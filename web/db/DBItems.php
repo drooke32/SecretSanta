@@ -1,9 +1,9 @@
 <?php
-include "DBGateway.php";
+require "DBGateway.php";
 
 function AddItem($itemString, $userID){
     //TODO handle cleaning before generating the query
-    $query = "INSERT INTO Items VALUES(".$itemString.",".$userID.")";
+    $query = "INSERT INTO Items VALUES('".$itemString."',".$userID.")";
     Query($query);
     //TODO  check for errors
 }
