@@ -1,5 +1,4 @@
 <?php
-require "DBGateway.php";
 
 function AddItem($itemString, $userID){
     //TODO handle cleaning before generating the query

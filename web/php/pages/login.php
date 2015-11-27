@@ -6,15 +6,4 @@ require "../../db/DBUsers.php";
  * and open the template in the editor.
  */
 
-////TESTING BULLSHEITTT
-
-AddUser("test", "testpassword");
-$result = GetUserByName("test");
-SaveSecretUser("5", $result[0]['userID']);
-
-$result2 = GetUserByID("5");
-
-$result3 = GetSecretUser($result2[0]['secretPerson']);
-
-echo $result3;
 

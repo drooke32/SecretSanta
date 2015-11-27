@@ -1,5 +1,4 @@
 <?php
-require "DBGateway.php";
 require "Encryptor.php";
 
 function AddUser($name, $password){
