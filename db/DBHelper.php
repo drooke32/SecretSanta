@@ -18,6 +18,16 @@ class DBHelper {
 
     }
 
+    function CheckLogin($username, $password){
+        $username = strtolower($username);
+        if($result = GetUserByName($username)){
+            if(password_verify($password, $result[0]['password'])){
+                return $result[0];
+            }
+            return false;
+        }
+        return false;
+    }
 
     function MatchUsers(){
         if($userIDs = GetAllUserIDs()){

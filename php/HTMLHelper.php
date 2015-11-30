@@ -3,16 +3,16 @@
 class HTMLHelper {
     
     function AddStyleSheet($cssPath){
-        echo '<link rel="stylesheet" type="text/css" href="/css/'.$cssPath.'.css">';
+        echo '<link rel="stylesheet" type="text/css" href="/SecretSanta/css/'.$cssPath.'.css">';
     }
     
     function AddJavaScript($jsPath){
-        echo '<script src="/SecretSanta/web/js/'.$jsPath.'.js"></script>';
+        echo '<script src="/SecretSanta/js/'.$jsPath.'.js"></script>';
     }
     
     function AddDefaultCSS(){
-        echo '<link rel="stylesheet" type="text/css" href="/SecretSanta/web/css/normalize.css">';
-        echo '<link rel="stylesheet" type="text/css" href="/SecretSanta/web/css/skeleton.css">';
+        echo '<link rel="stylesheet" type="text/css" href="/SecretSanta/css/normalize.css">';
+        echo '<link rel="stylesheet" type="text/css" href="/SecretSanta/css/skeleton.css">';
     }
     
     function AddMeta(){
