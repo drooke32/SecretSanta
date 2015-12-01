@@ -9,7 +9,7 @@ $(function(){
             success: function(data){
                 var response = JSON.parse(data);
                 if(response.success){
-                    window.location = response.data.location;
+                    window.location.href = response.data.location;
                 }
                 else{
                     $('.error').removeClass('hidden');
