@@ -4,7 +4,7 @@ $(function(){
         var formData = $('form').serialize();
         $.ajax({
             type: "POST",
-            url: "verifyLogin.php",
+            url: "php/verifyLogin.php",
             data: formData,
             success: function(data){
                 var response = JSON.parse(data);

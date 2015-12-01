@@ -4,19 +4,6 @@ require "DBItems.php";
 require "DBGateway.php";
 
 class DBHelper {
-    
-    function GetUserItemsList(){
-        if(GetAllItemsByUserID($_SESSION["user_id"])){
-
-        }
-        else{
-
-        }
-    }
-
-    function GetSecretUsersItemsList(){
-
-    }
 
     function CheckLogin($username, $password){
         $username = strtolower($username);
@@ -55,5 +42,9 @@ class DBHelper {
             return true;
         }
         return false;
+    }
+    
+    function ChangePassword($userID, $pass){
+        return SavePassword($userID, $pass);
     }
 }

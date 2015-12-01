@@ -1,4 +1,4 @@
 <?php
-require "../../db/DBHelper.php";
+require "php/DBHelper.php";
 
 MatchUsers();

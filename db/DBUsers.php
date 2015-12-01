@@ -35,10 +35,11 @@ function GetAllUserIDs(){
     return DBSelect("SELECT userID FROM Users");
 }
 
-/**
- * 
- * @return result
- */
 function ClearSecretUsers(){
     return DBQuery("UPDATE Users SET secretPerson=null");
+}
+
+function SavePassword($userID, $newPass){
+    $hash = password_hash($newPass, PASSWORD_DEFAULT);
+    return DBQuery("UPDATE Users SET password='".$hash."', passwordreset=0 WHERE userID=".$userID);
 }

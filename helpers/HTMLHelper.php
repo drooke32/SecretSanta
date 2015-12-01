@@ -13,6 +13,8 @@ class HTMLHelper {
     function AddDefaultCSS(){
         echo '<link rel="stylesheet" type="text/css" href="/SecretSanta/css/normalize.css">';
         echo '<link rel="stylesheet" type="text/css" href="/SecretSanta/css/skeleton.css">';
+        echo '<link rel="stylesheet" type="text/css" href="/SecretSanta/css/styles.css">';
+        echo '<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">';
     }
     
     function AddMeta(){
@@ -35,6 +37,21 @@ class HTMLHelper {
         echo '</head>';
     }
     
+    function Banner($bannerText, $showLogout = true){
+        $this->Element("div", "row");
+            if($showLogout){
+                $this->Element('div', 'twelve columns');
+                    $this->Element('button', "u-pull-right", array('id'=>'logout'));
+                        $this->Element('span', 'fa fa-sign-out fa-fw');$this->Close('span'); echo "Logout";
+                    $this->Close('button');
+                $this->Close('div');
+            }
+            $this->Element('div', 'twelve columns');
+                $this->Element('h2'); echo $bannerText; $this->Close('h2');
+            $this->Close('div');
+        $this->Close('div');
+    }
+    
     function Open($tag){
         echo '<'.$tag.'>';
     }
@@ -52,14 +69,16 @@ class HTMLHelper {
         $this->Close('body');
     }
     
-    function Element($tag, $cssClass = array(), $options = array(), $close = true){
+    function Element($tag, $cssClass = null, $options = array(), $close = false){
         $element = '<'.$tag.' ';
         if(count($options) > 0){
             foreach($options as $attr => $value){
                 $element .= $attr.'='.$value.' ';            
             }
         }
-        $element .= 'class="'.$cssClass.'" ';        
+        if($cssClass !== null){
+            $element .= 'class="'.$cssClass.'" ';
+        }                
         if($close){
             $element .= ' />';
         }

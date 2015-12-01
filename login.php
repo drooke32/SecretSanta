@@ -1,13 +1,13 @@
 <?php 
-require_once 'php/HTMLHelper.php';
-require_once 'php/LoginHelper.php';
+require_once 'helpers/HTMLHelper.php';
 
 $HTML = new HTMLHelper();
 $HTML->DefaultHeader('login');
 
 $HTML->OpenBody();
+    $HTML->Banner("Secret Santa",false);
     $HTML->Element('div', 'error hidden'); echo "Invalid Username or Password"; $HTML->close('div');    
-    $HTML->Element('form', null, array('method'=>'post'), false);
+    $HTML->Element('form', null, array('method'=>'post'));
         $HTML->Element('div', 'row');
             $HTML->Element('div', 'twelve columns');
                 $HTML->Element('label', null, array('for'=>'username'), false); echo 'Username'; $HTML->Close('label');

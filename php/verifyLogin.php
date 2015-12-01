@@ -1,5 +1,5 @@
 <?php
-require_once 'php/LoginHelper.php';
+require_once '../helpers/LoginHelper.php';
 $LH = new LoginHelper();
 //get data from the submitted form
 $username = isset($_POST['username']) ? $_POST['username'] : "";
