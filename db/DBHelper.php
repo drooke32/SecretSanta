@@ -52,9 +52,9 @@ class DBHelper {
         return SavePassword($userID, $pass);
     }
     
-    function GetSecretUsername($userID){
+    function GetSecretUser($userID){
         $user = GetUserByID($userID);
         $secret = GetSecretUser($user[0]['secretPerson']);
-        return $secret[0]['username'];
+        return $secret[0];
     }
 }

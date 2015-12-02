@@ -4,8 +4,9 @@ require_once 'db/DBHelper.php';
 
 $DB = new DBHelper();
 session_start();
-$items = $DB->GetUserChristmasList($_SESSION['user']);
-$secretPerson = $DB->GetSecretUsername($_SESSION['user']);
+$secretPerson = $DB->GetSecretUser($_SESSION['user']);
+$items = $DB->GetUserChristmasList($secretPerson['userID']);
+
 
 $HTML = new HTMLHelper();
 $HTML->DefaultHeader('secretPerson');
@@ -20,11 +21,15 @@ $HTML->OpenBody();
     $HTML->Close('div');
     $HTML->Element('div', 'row secret-container hidden');
         $HTML->Element('div', 'twelve columns centered');
-            $HTML->Element('h4'); echo "Secret Person: ".$secretPerson; $HTML->Close('h4');
+            $HTML->Element('h4'); echo "Secret Person: ".$secretPerson['username']; $HTML->Close('h4');
         $HTML->Close('div');
         $HTML->Element('div', 'twelve columns');
-            foreach($items as $item){
-                $HTML->ListItem($item['itemID'], $item['item'], $item['location'], true);
+            if(count($items) > 0){
+                foreach($items as $item){
+                    $HTML->ListItem($item['itemID'], $item['item'], $item['location'], true);
+                }
+            }else{
+                echo "<h3 class='centered'> No Christmas list yet!</h3>";
             }
         $HTML->Close('div');
     $HTML->Close('div');
