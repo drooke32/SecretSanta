@@ -10,3 +10,8 @@
     text-align: center;
 }
 
+.list-item {
+    margin-bottom: 20px;
+    padding: 5px;
+    border: 1px solid black;
+}

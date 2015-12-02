@@ -44,7 +44,17 @@ class DBHelper {
         return false;
     }
     
+    function GetUserChristmasList($userID){
+        return GetAllItemsByUserID($userID);
+    }
+    
     function ChangePassword($userID, $pass){
         return SavePassword($userID, $pass);
+    }
+    
+    function GetSecretUsername($userID){
+        $user = GetUserByID($userID);
+        $secret = GetSecretUser($user[0]['secretPerson']);
+        return $secret[0]['username'];
     }
 }

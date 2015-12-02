@@ -11,6 +11,7 @@ CREATE TABLE IF NOT EXISTS Users(
 CREATE TABLE IF NOT EXISTS Items(
     itemID int auto_increment primary key,
     item text not null,
+    location varchar(50) not null,
     userID int,
     FOREIGN KEY (userID) REFERENCES Users(userID)
 );

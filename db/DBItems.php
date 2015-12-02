@@ -1,36 +1,26 @@
 <?php
 
-function AddItem($itemString, $userID){
-    //TODO handle cleaning before generating the query
-    $query = "INSERT INTO Items VALUES('".$itemString."',".$userID.")";
-    Query($query);
-    //TODO  check for errors
+function AddItem($itemString, $location, $userID){
+    $query = "INSERT INTO Items (item, location, userID) VALUES('".$itemString."','".$location."',".$userID.")";
+    return DBQuery($query);
 }
 
 function DeleteItem($itemID){
-    //TODO handle cleaning before generating the query
     $query = "DELETE FROM Items WHERE itemID=".$itemID;
-    Query($query);
-    //TODO check for errors
+    return DBQuery($query);
 }
 
 function EditItem($itemID, $itemString){
-    //TODO handle cleaning before generating the query
     $query = "UPDATE Items SET item='".$itemString."' WHERE itemID=".$itemID;
-    Query($query);
-    //TODO check for errors
+    return DBQuery($query);
 }
 
 function GetItemByID($itemID){
-    //TODO handle cleaning before generating the query
-    $query = "SELECT * Items WHERE itemID=".$itemID;
-    Query($query);
-    //TODO check for errors
+    $query = "SELECT * FROM Items WHERE itemID=".$itemID;
+    return DBSelect($query);
 }
 
 function GetAllItemsByUserID($userID){
-    //TODO handle cleaning before generating the query
-    $query = "SELECT * Items WHERE userID=".$userID;
-    Query($query);
-    //TODO check for errors
+    $query = "SELECT * FROM Items WHERE userID=".$userID;
+    return DBSelect($query);
 }

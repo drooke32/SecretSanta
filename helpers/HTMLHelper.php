@@ -87,5 +87,18 @@ class HTMLHelper {
         }
         echo $element;
     }
+    
+    function ListItem($id, $text, $location, $showEdit){
+        $html = '<div class="row list-item"><div class="twelve columns">';
+        $html .= '<p>'.$text.'</p>';
+        $html .= '<p>Location: '.$location.'</p>';
+        if($showEdit){
+            $html .= '<div class="row u-pull-right"><div class="twelve columns">';
+            $html .= '<button data-itemID="'.$id.'">Edit</button>';
+            $html .= '</div></div>';
+        }        
+        $html .= '</div></div>';
+        echo $html;
+    }
 }
 
