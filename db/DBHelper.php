@@ -39,7 +39,7 @@ class DBHelper {
             foreach($matchedIDs as $userID => $secretID){
                SaveSecretUser($userID, $secretID);
             }
-            return true;
+            return $matchedIDs;
         }
         return false;
     }
@@ -56,5 +56,13 @@ class DBHelper {
         $user = GetUserByID($userID);
         $secret = GetSecretUser($user[0]['secretPerson']);
         return $secret[0];
+    }
+    
+    function CheckUserIsAdmin($userID){
+        $user = GetUserByID($userID);
+        if($user[0]['username'] == "denis"){
+            return true;
+        }
+        return false;
     }
 }

@@ -18,6 +18,7 @@ class LoginHelper {
         session_start();
         if($user = $DB->CheckLogin($username, $password)){
             $_SESSION['user'] = $user['userID'];
+            $_SESSION['name'] = $user['username'];
             $_SESSION['resetRequired'] = $user['passwordreset'];
             $_SESSION['logged'] = true;
             //generate the redirect url
