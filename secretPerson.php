@@ -11,7 +11,7 @@ $items = $DB->GetUserChristmasList($secretPerson['userID']);
 $HTML = new HTMLHelper();
 $HTML->DefaultHeader('secretPerson');
 $HTML->OpenBody();
-    $HTML->Banner("");
+    $HTML->Banner("", $_SESSION['name']);
     $HTML->Element('div', 'row button-row centered');
         $HTML->Element('div', 'twelve columns');
             $HTML->Element('button', 'button-primary', array('id'=>'show-secret'));
@@ -21,7 +21,7 @@ $HTML->OpenBody();
     $HTML->Close('div');
     $HTML->Element('div', 'row secret-container hidden');
         $HTML->Element('div', 'twelve columns centered');
-            $HTML->Element('h4'); echo "Secret Person: ".$secretPerson['username']; $HTML->Close('h4');
+            $HTML->Element('h4'); echo "Secret Person: ".ucfirst($secretPerson['username']); $HTML->Close('h4');
         $HTML->Close('div');
         $HTML->Element('div', 'twelve columns');
             if(count($items) > 0){

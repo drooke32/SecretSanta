@@ -1,10 +1,10 @@
 <?php
 require_once 'helpers/HTMLHelper.php';
-
+session_start();
 $HTML = new HTMLHelper();
 $HTML->DefaultHeader('changePassword');
 $HTML->OpenBody();
-    $HTML->Banner("Password Reset");
+    $HTML->Banner("Password Reset",$_SESSION['name']);
     $HTML->Element('div', 'error hidden'); echo "Password Reset Failed"; $HTML->close('div');    
     $HTML->Element('form', null, array('method'=>'post'));
         $HTML->Element('div', 'row');

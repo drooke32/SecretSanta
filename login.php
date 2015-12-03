@@ -5,7 +5,7 @@ $HTML = new HTMLHelper();
 $HTML->DefaultHeader('login');
 
 $HTML->OpenBody();
-    $HTML->Banner("Secret Santa",false);
+    $HTML->Banner("Secret Santa","", false);
     $HTML->Element('div', 'error hidden'); echo "Invalid Username or Password"; $HTML->close('div');    
     $HTML->Element('form', null, array('method'=>'post'));
         $HTML->Element('div', 'row');

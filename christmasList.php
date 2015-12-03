@@ -10,5 +10,5 @@ $items = $DB->GetUserChristmasList($_SESSION['user']);
 $HTML = new HTMLHelper();
 $HTML->DefaultHeader('secretPerson');
 $HTML->OpenBody();
-    $HTML->Banner("My List");
+    $HTML->Banner("My List", $_SESSION['name']);
 $HTML->CloseBody();

@@ -39,14 +39,15 @@ class HTMLHelper {
         echo '</head>';
     }
     
-    function Banner($bannerText, $showLogout = true){
+    function Banner($bannerText, $user = "", $showLogout = true){
         $RH = new RedirectHelper();
         $this->Element("div", "row");
             if($showLogout){
                 $this->Element('div', 'twelve columns');
                     $this->Element('div', 'menu-container u-pull-right');
                         $this->Element('div','drop');
-                            $this->Element('button', 'c-hamburger c-hamburger--htra');
+                            //$this->Element('span', 'username');echo ucfirst($user); $this->Close('span');
+                            $this->Element('button', 'c-hamburger c-hamburger--htra ');
                                 $this->Element('span');echo "toggle menu"; $this->Close('span');
                             $this->Close('button');
                             $this->Element('ul');
