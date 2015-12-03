@@ -1,6 +1,7 @@
 $(function(){
     AddMenuToggle();
     AddLogoutClick();
+    AddMenuClicks();
 });
 
 function AddLogoutClick(){
@@ -24,6 +25,14 @@ function AddMenuToggle(){
         //e.preventDefault();
         $('.c-hamburger').toggleClass('is-active');
         $('.drop').toggleClass('is-active');
+    });
+}
+
+function AddMenuClicks(){
+    $('body').on('click', '.navLink', function(e){
+        e.preventDefault();
+        var dest = $(this).attr('href');
+        window.location.href = dest;
     });
 }
 

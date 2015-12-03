@@ -31,12 +31,14 @@ class HTMLHelper {
     }
     
     function DefaultHeader($page = null){
-        echo '<head>';
+        echo '<!DOCTYPE html>';
+        $this->Open('html');
+        $this->Open('head');
         $this->AddMeta();
         if($page){
             $this->AddJavaScript($page);
         }
-        echo '</head>';
+        $this->close('head');
     }
     
     function Banner($bannerText, $user = "", $showLogout = true){
@@ -52,14 +54,14 @@ class HTMLHelper {
                             $this->Close('button');
                             $this->Element('ul');
                                 $this->Element('li');
-                                    $link = $RH->AnchorLink('christmasList');
-                                    $this->Element('a',null,array('href'=> $link));
+                                    $link = $RH->Redirect('christmasList');
+                                    $this->Element('a','navLink',array('href'=> $link));
                                         $this->Element('span', 'fa fa-list fa-fw');$this->Close('span');echo " My List";
                                     $this->Close('a');
                                 $this->Close('li');
                                 $this->Element('li');
-                                    $link2 = $RH->AnchorLink('secretPerson');
-                                    $this->Element('a',null,array('href'=> $link2));
+                                    $link2 = $RH->Redirect('secretPerson');
+                                    $this->Element('a','navLink',array('href'=> $link2));
                                         $this->Element('span', 'fa fa-user fa-fw');$this->Close('span');echo " Secret Person";                                    
                                     $this->Close('a');
                                 $this->Close('li');
@@ -94,6 +96,7 @@ class HTMLHelper {
     function CloseBody(){
         $this->Close('div');
         $this->Close('body');
+        $this->Close('html');
     }
     
     function Element($tag, $cssClass = null, $options = array(), $close = false){
