@@ -7,5 +7,9 @@ class RedirectHelper {
         }
         return '/SecretSanta/'.$page.'.php';
     }
+    
+    function AnchorLink($page){
+        return $_SERVER['HTTP_HOST'].'/SecretSanta/'.$page.'.php';
+    }
 }
 

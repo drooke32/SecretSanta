@@ -1,5 +1,10 @@
 $(function(){
-   $('body').on('click', '#logout', function(e){
+    AddMenuToggle();
+    AddLogoutClick();
+});
+
+function AddLogoutClick(){
+    $('body').on('click', '#logout', function(e){
         e.preventDefault();
         $.ajax({
             type: "POST",
@@ -11,6 +16,14 @@ $(function(){
                 }
             }
         });
-   });
-});
+    });
+}
+
+function AddMenuToggle(){
+    $('body').on('click', '.menu-container', function(e){
+        //e.preventDefault();
+        $('.c-hamburger').toggleClass('is-active');
+        $('.drop').toggleClass('is-active');
+    });
+}
 

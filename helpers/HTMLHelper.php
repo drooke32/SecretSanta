@@ -1,4 +1,5 @@
 <?php
+require_once 'RedirectHelper.php';
 
 class HTMLHelper {
     
@@ -14,6 +15,7 @@ class HTMLHelper {
         echo '<link rel="stylesheet" type="text/css" href="/SecretSanta/css/normalize.css">';
         echo '<link rel="stylesheet" type="text/css" href="/SecretSanta/css/skeleton.css">';
         echo '<link rel="stylesheet" type="text/css" href="/SecretSanta/css/styles.css">';
+        echo '<link rel="stylesheet" type="text/css" href="/SecretSanta/css/menu.css">';
         echo '<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">';
     }
     
@@ -38,12 +40,36 @@ class HTMLHelper {
     }
     
     function Banner($bannerText, $showLogout = true){
+        $RH = new RedirectHelper();
         $this->Element("div", "row");
             if($showLogout){
                 $this->Element('div', 'twelve columns');
-                    $this->Element('button', "u-pull-right", array('id'=>'logout'));
-                        $this->Element('span', 'fa fa-sign-out fa-fw');$this->Close('span'); echo "Logout";
-                    $this->Close('button');
+                    $this->Element('div', 'menu-container u-pull-right');
+                        $this->Element('div','drop');
+                            $this->Element('button', 'c-hamburger c-hamburger--htra');
+                                $this->Element('span');echo "toggle menu"; $this->Close('span');
+                            $this->Close('button');
+                            $this->Element('ul');
+                                $this->Element('li');
+                                    $link = $RH->AnchorLink('christmasList');
+                                    $this->Element('a',null,array('href'=> $link));
+                                        $this->Element('span', 'fa fa-list fa-fw');$this->Close('span');echo " My List";
+                                    $this->Close('a');
+                                $this->Close('li');
+                                $this->Element('li');
+                                    $link2 = $RH->AnchorLink('secretPerson');
+                                    $this->Element('a',null,array('href'=> $link2));
+                                        $this->Element('span', 'fa fa-user fa-fw');$this->Close('span');echo " Secret Person";                                    
+                                    $this->Close('a');
+                                $this->Close('li');
+                                $this->Element('li');
+                                    $this->Element('a',null,array('href'=>'#', 'id'=>'logout'));
+                                        $this->Element('span', 'fa fa-sign-out fa-fw');$this->Close('span');echo " Logout";
+                                    $this->Close('a');
+                                $this->Close('li');
+                            $this->Close('ul');                    
+                        $this->Close('div');
+                    $this->Close('div');
                 $this->Close('div');
             }
             $this->Element('div', 'twelve columns');

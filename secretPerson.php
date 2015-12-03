@@ -26,7 +26,7 @@ $HTML->OpenBody();
         $HTML->Element('div', 'twelve columns');
             if(count($items) > 0){
                 foreach($items as $item){
-                    $HTML->ListItem($item['itemID'], $item['item'], $item['location'], true);
+                    $HTML->ListItem($item['itemID'], $item['item'], $item['location'], false);
                 }
             }else{
                 echo "<h3 class='centered'> No Christmas list yet!</h3>";
