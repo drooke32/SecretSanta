@@ -9,11 +9,47 @@
 .list-item {
     margin-bottom: 20px;
     padding: 5px;
-    border: 1px solid black;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.10), 0 2px 8px 0 rgba(0, 0, 0, 0.10);
 }
 
+.header-text {
+    margin-top: 15px;
+}
 
+.add-button {
+    height: 52px;
+    width: 52px;
+    bottom: 20px;
+    right: 20px;
+    background: #E74C3C;
+    position: fixed;
+    border-radius: 50%;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.32), 0 4px 10px 0 rgba(0, 0, 0, 0.28);
+}
 
+.span1 {
+    display: block;
+    position: absolute;
+    top: 25px;
+    left: 18px;
+    right: 18px;
+    height: 2px;
+    background: #ECF0F1;
+}
+.span2 {
+    position: absolute;
+    display: block;
+    left: 25px;
+    top: 18px;
+    bottom: 18px;
+    width: 2px;
+    background: #ECF0F1;
+}
+
+.ListButtons button {
+    border: none;
+    padding: 0 20px;
+}
 
 
 

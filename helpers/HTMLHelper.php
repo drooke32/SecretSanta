@@ -83,7 +83,7 @@ class HTMLHelper {
         $this->Element('div', 'container');
             $this->Element('div', 'row');
                 $this->Element('div', 'twelve columns');
-                    $this->Element('h2'); echo $bannerText; $this->Close('h2');
+                    $this->Element('h2', 'header-text'); echo $bannerText; $this->Close('h2');
                 $this->Close('div');
             $this->Close('div');
     }
@@ -130,8 +130,9 @@ class HTMLHelper {
         $html .= '<p>'.$text.'</p>';
         $html .= '<p>Location: '.$location.'</p>';
         if($showEdit){
-            $html .= '<div class="row u-pull-right"><div class="twelve columns">';
-            $html .= '<button data-itemID="'.$id.'">Edit</button>';
+            $html .= '<div class="row ListButtons"><div class="twelve columns">';
+            $html .= '<button data-itemID="'.$id.'" class="delete-button">Delete</button>';
+            $html .= '<button data-itemID="'.$id.'" class="edit-button">Edit</button>';            
             $html .= '</div></div>';
         }        
         $html .= '</div></div>';
