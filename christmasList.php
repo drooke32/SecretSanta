@@ -12,7 +12,7 @@ $HTML->DefaultHeader('christmasList');
 $HTML->OpenBody();
     $HTML->Element('span', 'container-darkened');$HTML->Close('span');
     $HTML->Banner("My List", $_SESSION['name']);
-    $HTML->Element('div', 'error hidden');$HTML->close('div');  
+    $HTML->Element('div', 'error hidden');$HTML->Close('div');  
     $HTML->Element('div', 'row');
         $HTML->Element('div', 'twelve columns', array('id'=>'list-container'));
             if(count($items) > 0){
@@ -30,6 +30,7 @@ $HTML->OpenBody();
     $HTML->Close('div');
     //item form
     $HTML->Element('form', 'modal-container', array('id'=>'item-form'));
+        $HTML->Element('div', 'form-error hidden');$HTML->Close('div');
         $HTML->Element('label', null, array('for'=>'item'), false); echo 'Description'; $HTML->Close('label');
         $HTML->Element('textarea',"u-full-width", array('id'=>'item', 'name'=>'item', 'placeholder'=>"Ex. An amazing giftcard!"));$HTML->Close('textarea');
         $HTML->Element('label', null, array('for'=>'location'), false); echo 'Location'; $HTML->Close('label');

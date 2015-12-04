@@ -32,6 +32,7 @@
     background: #E74C3C;
     position: fixed;
     z-index: 50;
+    cursor: pointer;
     border-radius: 50%;
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.40), 0 4px 10px 0 rgba(0, 0, 0, 0.36);
 }

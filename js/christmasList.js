@@ -20,36 +20,43 @@ function SetupShadowBox(){
 function BindItemSubmit(){
     $('body').on('click', '#item-submit', function(e){
         e.preventDefault();
-        var formData = $('#item-form').serialize();
-        $.ajax({
-            type: "POST",
-            url: "php/listItemController.php",
-            data: formData,
-            success: function(data){
-                var response = JSON.parse(data);
-                if(response.success){
-                    if(response.type === "add"){
-                        NewItem(response.data);
+        HideError();
+        HideFormError();
+        if(ValidateInput()){
+            var formData = $('#item-form').serialize();
+            $.ajax({
+                type: "POST",
+                url: "php/listItemController.php",
+                data: formData,
+                success: function(data){
+                    var response = JSON.parse(data);
+                    if(response.success){
+                        if(response.type === "add"){
+                            NewItem(response.data);
+                        }
+                        else{
+                            EditItem(response.data);
+                        }
                     }
                     else{
-                        EditItem(response.data);
+                        ShowError(response.error);
                     }
-                }
-                else{
+                },
+                error: function(data){
+                    var response = JSON.parse(data);
                     ShowError(response.error);
                 }
-            },
-            error: function(data){
-                var response = JSON.parse(data);
-                ShowError(response.error);
-            }
-        });
-   });
+            });
+        }else{
+            ShowFormError();
+        }
+    });
 }
 
 function BindDeleteSubmit(){
    $('body').on('click', '#delete-submit', function(e){
         e.preventDefault();
+        HideError();
         var formData = $('#delete-form').serialize();
         $.ajax({
             type: "POST",
@@ -134,6 +141,19 @@ function DeleteItem(id){
     SetFormHidden();
 }
 
+function HideError(){
+    $('.error').addClass('hidden'); 
+}
+
+function HideFormError(){
+    $('.form-error').addClass('hidden'); 
+}
+
+function ShowFormError(error){
+    $('.form-error').text(error);
+    $('.form-error').removeClass('hidden'); 
+}
+
 function ShowError(errorText){
     $('.error').text(errorText);
     $('.error').removeClass('hidden'); 
@@ -153,6 +173,17 @@ function SetFormHidden(){
 }
 
 function ValidateInput(){
-    
+    var result = true;
+    var desc = $('#item').val();
+    var loc = $('#location').val();
+    if(desc === null || desc === ""){
+        ShowFormError("Invalid Item Description");
+        result = false;
+    }
+    if(loc === null || loc === ""){
+        ShowFormError("Invalid Location");
+        result = false;
+    }    
+    return result;
 }
 
