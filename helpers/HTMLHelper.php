@@ -43,12 +43,14 @@ class HTMLHelper {
     
     function Banner($bannerText, $user = "", $showLogout = true){
         $RH = new RedirectHelper();
-        $this->Element("div", "row");
-            if($showLogout){
+        
+        if($showLogout){
+        $this->Element('div','nav-container');
+            $this->Element("div", "row");
                 $this->Element('div', 'twelve columns');
-                    $this->Element('div', 'menu-container u-pull-right');
-                        $this->Element('div','drop');
-                            //$this->Element('span', 'username');echo ucfirst($user); $this->Close('span');
+                    $this->Element('div', 'menu-container');
+                        $this->Element('div','drop u-pull-right');
+                            
                             $this->Element('button', 'c-hamburger c-hamburger--htra ');
                                 $this->Element('span');echo "toggle menu"; $this->Close('span');
                             $this->Close('button');
@@ -72,13 +74,18 @@ class HTMLHelper {
                                 $this->Close('li');
                             $this->Close('ul');                    
                         $this->Close('div');
+                        $this->Element('h3', 'username');echo ucfirst($user); $this->Close('h3');
                     $this->Close('div');
                 $this->Close('div');
-            }
-            $this->Element('div', 'twelve columns');
-                $this->Element('h2'); echo $bannerText; $this->Close('h2');
             $this->Close('div');
         $this->Close('div');
+        }
+        $this->Element('div', 'container');
+            $this->Element('div', 'row');
+                $this->Element('div', 'twelve columns');
+                    $this->Element('h2'); echo $bannerText; $this->Close('h2');
+                $this->Close('div');
+            $this->Close('div');
     }
     
     function Open($tag){
@@ -90,7 +97,7 @@ class HTMLHelper {
     
     function OpenBody(){
         $this->Open('body');
-        $this->Element('div', 'container');
+        
     }
     
     function CloseBody(){

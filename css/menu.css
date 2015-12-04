@@ -4,6 +4,23 @@
     margin-bottom: 10px;
 }
 
+.username{
+    float: right;
+    margin-right: 20px;
+}
+
+.nav-container {
+    position: relative;
+    height: 80px;
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 20px;
+    z-index: 100;
+    box-sizing: border-box;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 8px 0 rgba(0, 0, 0, 0.12);
+}
+
 .c-hamburger {
   display: block;
   position: relative;
@@ -104,13 +121,16 @@
     position: relative;
 }
 .drop ul {
+    background: #fff;
     position: absolute;
-    right: 22px;
+    right: 21px;
+    top: 80px;
     transition: all 0.3s ease;
     transform: scale(0);
-    transform-origin: 100% 0;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 8px 0 rgba(0, 0, 0, 0.12);
+    transform-origin: 100% -7%;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.16), 0 4px 8px 0 rgba(0, 0, 0, 0.12);
 }
+
 .drop li {
     display: block;
     width: 100%;
