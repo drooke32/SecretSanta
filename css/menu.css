@@ -11,7 +11,8 @@
 
 .nav-container {
     position: fixed;
-    background: #FFF;
+    background: #3498DB;
+    color: #fff;
     top: 0;
     height: 80px;
     width: 100%;
@@ -20,7 +21,7 @@
     padding: 0 20px;
     z-index: 100;
     box-sizing: border-box;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 8px 0 rgba(0, 0, 0, 0.12);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.20), 0 2px 10px 0 rgba(0, 0, 0, 0.16);
 }
 
 .c-hamburger {
@@ -52,7 +53,7 @@
   left: 9px;
   right: 9px;
   height: 4px;
-  background: #95A5A6;
+  background: #FFF;
 }
 
 .c-hamburger span::before,
@@ -62,7 +63,7 @@
   left: 0;
   width: 100%;
   height: 4px;
-  background-color: #95A5A6;
+  background-color: #FFF;
   content: "";
 }
 
@@ -75,7 +76,7 @@
 }
 
 .c-hamburger--htra {
-  background-color: #FFF;
+  background-color: #3498DB;
 }
 
 .c-hamburger--htra span {
@@ -94,7 +95,7 @@
 
 /* active state, i.e. menu open */
 .c-hamburger--htra.is-active {
-  background-color: #FFF;
+  background-color: #2980B9;
 }
 
 .c-hamburger--htra.is-active span {
@@ -123,22 +124,26 @@
     position: relative;
 }
 .drop ul {
-    background: #FFF;
+    background: #3498DB;
+    color: #fff;
     position: absolute;
+    z-index: 99;
     right: 21px;
     top: 80px;
     transition: all 0.3s ease;
     transform: scale(0);
     transform-origin: 100% -7%;
-    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.16), 0 4px 8px 0 rgba(0, 0, 0, 0.12);
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.20), 0 4px 10px 0 rgba(0, 0, 0, 0.16);
 }
 
 .drop li {
     display: block;
+    color: #fff;
     width: 100%;
 }
 .drop a {
     width: 100%;
+    color: #fff;
     padding: 1em 18px;
     display: inline-block;
     white-space: pre;

@@ -31,6 +31,23 @@ function DBSelect($query){
 }
 
 /**
+ * Performs a database query and returns false on failure, or the last inserted
+ * primary ID.
+ * 
+ * @param string the insert query to be executed
+ * @return false if failure, or the last inserted ID
+ */
+function DBInsert($query){
+    $connection = DBConnect();
+    $result = mysqli_query($connection, $query);  
+
+    if($result === false) {
+        return false;
+    }
+    return mysqli_insert_id($connection);
+}
+
+/**
  * Connect to the DB
  * 
  * @staticvar type $connection
@@ -61,3 +78,6 @@ function DBError(){
     return mysqli_error($connection);
 }
 
+function CleanString($string){
+    return filter_var($string, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH | FILTER_FLAG_STRIP_LOW);
+}

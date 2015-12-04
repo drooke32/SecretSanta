@@ -2,7 +2,7 @@
 require "Encryptor.php";
 
 function AddUser($name, $password){
-    $cleanName = filter_var($name, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH | FILTER_FLAG_STRIP_LOW);
+    $cleanName = CleanString($name);
     if(!GetUserByName($cleanName)){
         $hashedPassword = password_Hash($password, PASSWORD_DEFAULT);
         return DBQuery("INSERT INTO Users (username, password) VALUES('".$cleanName."', '".$hashedPassword."')");
@@ -15,8 +15,7 @@ function GetUserByID($userID){
 }
 
 function GetUserByName($name){
-    $cleanName = filter_var($name, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH | FILTER_FLAG_STRIP_LOW);
-    return DBSelect("SELECT * FROM Users WHERE username='".$cleanName."'");
+    return DBSelect("SELECT * FROM Users WHERE username='".CleanString($name)."'");
 }
 
 function GetSecretUser($encryptedID){

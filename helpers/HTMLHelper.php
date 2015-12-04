@@ -113,7 +113,7 @@ class HTMLHelper {
         $element = '<'.$tag.' ';
         if(count($options) > 0){
             foreach($options as $attr => $value){
-                $element .= $attr.'='.$value.' ';            
+                $element .= $attr.'="'.$value.'" ';            
             }
         }
         if($cssClass !== null){
@@ -129,17 +129,17 @@ class HTMLHelper {
     }
     
     function ListItem($id, $text, $location, $showEdit){
-        $html = '<div class="row list-item"><div class="twelve columns">';
-        $html .= '<p>'.$text.'</p>';
-        $html .= '<p>Location: '.$location.'</p>';
+        $html = '<div class="row list-item" id="'.$id.'"><div class="twelve columns">';
+        $html .= '<p id="item-desc-'.$id.'">'.$text.'</p>';
+        $html .= '<p id="location-'.$id.'">Location: '.$location.'</p>';
         if($showEdit){
             $html .= '<div class="row ListButtons"><div class="twelve columns">';
-            $html .= '<button data-itemID="'.$id.'" class="delete-button">Delete</button>';
-            $html .= '<button data-itemID="'.$id.'" class="edit-button">Edit</button>';            
+            $html .= '<button class="delete-button flat-button">Delete</button>';
+            $html .= '<button class="edit-button flat-button">Edit</button>';            
             $html .= '</div></div>';
         }        
         $html .= '</div></div>';
-        echo $html;
+        return $html;
     }
 }
 

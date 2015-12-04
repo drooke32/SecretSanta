@@ -8,8 +8,12 @@
 
 .list-item {
     margin-bottom: 20px;
-    padding: 5px;
+    padding-top: 20px;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.10), 0 2px 8px 0 rgba(0, 0, 0, 0.10);
+}
+.list-item p {
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .header-text {
@@ -27,8 +31,9 @@
     right: 20px;
     background: #E74C3C;
     position: fixed;
+    z-index: 50;
     border-radius: 50%;
-    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.32), 0 4px 10px 0 rgba(0, 0, 0, 0.28);
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.40), 0 4px 10px 0 rgba(0, 0, 0, 0.36);
 }
 
 .span1 {
@@ -50,9 +55,62 @@
     background: #FFF;
 }
 
-.ListButtons button {
+.flat-button {
     border: none;
+    color: #3498DB;
     padding: 0 20px;
+}
+
+.dialog-button {
+    padding-left: 24px;
+    padding-right: 24px;
+    margin: 8px;
+}
+
+.button-row {
+    margin-left: 20px;
+    width: 100%;
+    height: 54px;
+}
+
+.modal-container {
+    position: fixed;
+    background: #FFF;
+    bottom: 30px;
+    right: 30px;
+    width: 85%;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px 20px 0 20px;
+    transition: all 0.3s ease;
+    transform: scale(0);
+    transform-origin: 100% 100%;
+    z-index: 75;
+    box-sizing: border-box;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.32), 0 4px 10px 0 rgba(0, 0, 0, 0.28);
+}
+
+.modal-container.form-active {
+    transform: scale(1);
+}
+
+.container-darkened {
+    display: none;
+    width: 100%;
+    opacity: 0;
+    background: rgba(0,0,0,.5);
+    -moz-transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    position: absolute;
+}
+
+.container-darkened.darken {
+    display: block;
+    opacity: 1;
 }
 
 

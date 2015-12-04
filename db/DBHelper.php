@@ -65,4 +65,20 @@ class DBHelper {
         }
         return false;
     }
+    
+    function AddChristmasListItem($item, $location, $userID){
+        return AddItem($item, $location, $userID);
+    }
+    
+    function EditChristmasListItem($item, $location, $itemID){
+        return EditItem($itemID, $item, $location);
+    }
+    
+    function DeleteChristmasListItem($itemID){
+        return DeleteItem($itemID);
+    }
+    
+    function GetError(){
+        return DBError();
+    }
 }
