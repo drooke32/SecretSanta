@@ -34,7 +34,7 @@
     left: 18px;
     right: 18px;
     height: 2px;
-    background: #ECF0F1;
+    background: #FFF;
 }
 .span2 {
     position: absolute;
@@ -43,7 +43,7 @@
     top: 18px;
     bottom: 18px;
     width: 2px;
-    background: #ECF0F1;
+    background: #FFF;
 }
 
 .ListButtons button {
