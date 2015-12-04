@@ -16,6 +16,10 @@
     margin-top: 15px;
 }
 
+.adjust-for-nav {
+   margin-top: 80px; 
+}
+
 .add-button {
     height: 52px;
     width: 52px;

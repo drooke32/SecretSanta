@@ -8,7 +8,7 @@ $items = $DB->GetUserChristmasList($_SESSION['user']);
 
 
 $HTML = new HTMLHelper();
-$HTML->DefaultHeader('secretPerson');
+$HTML->DefaultHeader('christmasList');
 $HTML->OpenBody();
     $HTML->Banner("My List", $_SESSION['name']);
     $HTML->Element('div', 'row');

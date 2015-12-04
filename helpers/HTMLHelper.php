@@ -79,8 +79,11 @@ class HTMLHelper {
                 $this->Close('div');
             $this->Close('div');
         $this->Close('div');
+        $this->Element('div', 'container adjust-for-nav');
         }
-        $this->Element('div', 'container');
+        else{
+            $this->Element('div', 'container');
+        }
             $this->Element('div', 'row');
                 $this->Element('div', 'twelve columns');
                     $this->Element('h2', 'header-text'); echo $bannerText; $this->Close('h2');

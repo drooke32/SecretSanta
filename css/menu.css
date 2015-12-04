@@ -10,7 +10,9 @@
 }
 
 .nav-container {
-    position: relative;
+    position: fixed;
+    background: #FFF;
+    top: 0;
     height: 80px;
     width: 100%;
     max-width: 960px;
