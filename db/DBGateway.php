@@ -61,7 +61,7 @@ function DBConnect(){
         //$connection = mysqli_connect('localhost','root','','secretsanta');
         
         //live connection
-        $connection = mysqli_connect('192.168.99.10', 'drooke', 'P@ssw0rd', 'SecretSanta_Prod');
+        $connection = mysqli_connect('192.168.99.10', 'drooke', 'P@ssw0rd', 'SecretSanta_Prod', '3306');
     }
     if($connection === false) {
         return mysqli_connect_error(); 
