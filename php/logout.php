@@ -5,11 +5,11 @@ $RH = new RedirectHelper();
 $return = new stdClass();
 session_start();
 $_SESSION['logged'] = false;
-session_reset();
+session_unset();
 
 $return->success = true;
 $return->errorMessage = "";
-$return->location = $RH->Redirect('login');
+$return->location = '/login.php';
 
 echo json_encode($return);
 
