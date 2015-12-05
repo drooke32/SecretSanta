@@ -4,18 +4,18 @@ require_once 'RedirectHelper.php';
 class HTMLHelper {
     
     function AddStyleSheet($cssPath){
-        echo '<link rel="stylesheet" type="text/css" href="/SecretSanta/css/'.$cssPath.'.css">';
+        echo '<link rel="stylesheet" type="text/css" href="/css/'.$cssPath.'.css">';
     }
     
     function AddJavaScript($jsPath){
-        echo '<script src="/SecretSanta/js/'.$jsPath.'.js"></script>';
+        echo '<script src="/js/'.$jsPath.'.js"></script>';
     }
     
     function AddDefaultCSS(){
-        echo '<link rel="stylesheet" type="text/css" href="/SecretSanta/css/normalize.css">';
-        echo '<link rel="stylesheet" type="text/css" href="/SecretSanta/css/skeleton.css">';
-        echo '<link rel="stylesheet" type="text/css" href="/SecretSanta/css/styles.css">';
-        echo '<link rel="stylesheet" type="text/css" href="/SecretSanta/css/menu.css">';
+        echo '<link rel="stylesheet" type="text/css" href="/css/normalize.css">';
+        echo '<link rel="stylesheet" type="text/css" href="/css/skeleton.css">';
+        echo '<link rel="stylesheet" type="text/css" href="/css/styles.css">';
+        echo '<link rel="stylesheet" type="text/css" href="/css/menu.css">';
         echo '<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">';
     }
     

@@ -57,10 +57,11 @@ function DBConnect(){
     $connection;
     
     if(!isset($connection)) {
-        //currently broken
-        //$config = parse_ini_file('..\..\config.ini'); 
-        //$connection = mysqli_connect('localhost',$config['username'],$config['password'],$config['dbname']);
-        $connection = mysqli_connect('localhost','root','','secretsanta');
+        //testing/local connection
+        //$connection = mysqli_connect('localhost','root','','secretsanta');
+        
+        //live connection
+        $connection = mysqli_connect('192.168.99.10', 'drooke', 'P@ssw0rd', 'SecretSanta_Prod');
     }
     if($connection === false) {
         return mysqli_connect_error(); 

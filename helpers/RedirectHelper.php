@@ -3,13 +3,13 @@
 class RedirectHelper {
     function Redirect($page){
         if(isset($_SESSION['logged']) && $_SESSION['resetRequired']){
-            return '/SecretSanta/changePassword.php';
+            return '/changePassword.php';
         }
-        return '/SecretSanta/'.$page.'.php';
+        return '/'.$page.'.php';
     }
     
     function AnchorLink($page){
-        return $_SERVER['HTTP_HOST'].'/SecretSanta/'.$page.'.php';
+        return $_SERVER['HTTP_HOST'].'/'.$page.'.php';
     }
 }
 
