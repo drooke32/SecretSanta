@@ -2,14 +2,18 @@
 
 class RedirectHelper {
     function Redirect($page){
+        //$live = "/SecretSanta";
+        $live = "";
         if(isset($_SESSION['logged']) && $_SESSION['resetRequired']){
-            return '/changePassword.php';
+            return $live.'/changePassword.php';
         }
-        return '/'.$page.'.php';
+        return $live.'/'.$page.'.php';
     }
     
     function AnchorLink($page){
-        return $_SERVER['HTTP_HOST'].'/'.$page.'.php';
+        //$live = "/SecretSanta";
+        $live = "";
+        return $_SERVER['HTTP_HOST'].$live.'/'.$page.'.php';
     }
 }
 

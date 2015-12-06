@@ -3,19 +3,22 @@ require_once 'RedirectHelper.php';
 
 class HTMLHelper {
     
+    //const DIRECTORY = "/SecretSanta/";
+    const DIRECTORY = "/";
+    
     function AddStyleSheet($cssPath){
-        echo '<link rel="stylesheet" type="text/css" href="/css/'.$cssPath.'.css">';
+        echo '<link rel="stylesheet" type="text/css" href="'.self::DIRECTORY.'css/'.$cssPath.'.css">';
     }
     
     function AddJavaScript($jsPath){
-        echo '<script src="/js/'.$jsPath.'.js"></script>';
+        echo '<script src="'.self::DIRECTORY.'js/'.$jsPath.'.js"></script>';
     }
     
     function AddDefaultCSS(){
-        echo '<link rel="stylesheet" type="text/css" href="/css/normalize.css">';
-        echo '<link rel="stylesheet" type="text/css" href="/css/skeleton.css">';
-        echo '<link rel="stylesheet" type="text/css" href="/css/styles.css">';
-        echo '<link rel="stylesheet" type="text/css" href="/css/menu.css">';
+        echo '<link rel="stylesheet" type="text/css" href="'.self::DIRECTORY.'css/normalize.css">';
+        echo '<link rel="stylesheet" type="text/css" href="'.self::DIRECTORY.'css/skeleton.css">';
+        echo '<link rel="stylesheet" type="text/css" href="'.self::DIRECTORY.'css/styles.css">';
+        echo '<link rel="stylesheet" type="text/css" href="'.self::DIRECTORY.'css/menu.css">';
         echo '<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">';
     }
     
@@ -58,12 +61,18 @@ class HTMLHelper {
                                 $this->Element('li');
                                     $link = $RH->Redirect('christmasList');
                                     $this->Element('a','navLink',array('href'=> $link));
-                                        $this->Element('span', 'fa fa-list fa-fw');$this->Close('span');echo " My List";
+                                        $this->Element('span', 'fa fa-list-ul fa-fw');$this->Close('span');echo " My List";
                                     $this->Close('a');
                                 $this->Close('li');
                                 $this->Element('li');
-                                    $link2 = $RH->Redirect('secretPerson');
+                                    $link2 = $RH->Redirect('lists');
                                     $this->Element('a','navLink',array('href'=> $link2));
+                                        $this->Element('span', 'fa fa-list fa-fw');$this->Close('span');echo " All Lists";
+                                    $this->Close('a');
+                                $this->Close('li');
+                                $this->Element('li');
+                                    $link3 = $RH->Redirect('secretPerson');
+                                    $this->Element('a','navLink',array('href'=> $link3));
                                         $this->Element('span', 'fa fa-user fa-fw');$this->Close('span');echo " Secret Person";                                    
                                     $this->Close('a');
                                 $this->Close('li');
@@ -126,6 +135,15 @@ class HTMLHelper {
             $element .= ' >';
         }
         echo $element;
+    }
+    
+    function SelectListOption($value, $text, $options = array()){
+        $html = '<option value="'.$value.'"';
+        foreach($options as $option){
+            $html .= " ".$option;
+        }
+        $html .= "> ".$text."</option>";
+        echo $html;
     }
     
     function ListItem($id, $text, $location, $showEdit){

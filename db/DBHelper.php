@@ -81,4 +81,8 @@ class DBHelper {
     function GetError(){
         return DBError();
     }
+    
+    function GetAllSecretUsers(){
+        return GetAllUsers();
+    }
 }

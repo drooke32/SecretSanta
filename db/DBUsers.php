@@ -34,6 +34,10 @@ function GetAllUserIDs(){
     return DBSelect("SELECT userID FROM Users");
 }
 
+function GetAllUsers(){
+    return DBSelect("SELECT userID, username FROM Users");
+}
+
 function ClearSecretUsers(){
     return DBQuery("UPDATE Users SET secretPerson=null");
 }

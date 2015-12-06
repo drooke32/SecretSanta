@@ -12,6 +12,7 @@ $HTML = new HTMLHelper();
 $HTML->DefaultHeader('secretPerson');
 $HTML->OpenBody();
     $HTML->Banner("", $_SESSION['name']);
+    if($secretPerson != null){
     $HTML->Element('div', 'row button-row centered');
         $HTML->Element('div', 'twelve columns');
             $HTML->Element('button', 'button-primary', array('id'=>'show-secret'));
@@ -33,6 +34,10 @@ $HTML->OpenBody();
             }
         $HTML->Close('div');
     $HTML->Close('div');
+    }
+    else{
+        $HTML->Element('h3'); echo "You don't have a secret person!"; $HTML->Close('h3');
+    }
 $HTML->CloseBody();
 
 
