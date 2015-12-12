@@ -6,6 +6,9 @@ function AddNewItem($return){
     $DB = new DBHelper();
     $HTML = new HTMLHelper();
     $item = $_POST['item']; $location = $_POST['location']; $userID = $_SESSION['user'];
+    if($location == null || $location == ""){
+        $location = "N/A";
+    }
     if($itemID = $DB->AddChristmasListItem($item, $location, $userID)){
         $return->success = true;
         $return->data = $HTML->ListItem($itemID, $item, $location, true);

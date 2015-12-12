@@ -175,15 +175,10 @@ function SetFormHidden(){
 function ValidateInput(){
     var result = true;
     var desc = $('#item').val();
-    var loc = $('#location').val();
     if(desc === null || desc === ""){
         ShowFormError("Invalid Item Description");
         result = false;
-    }
-    if(loc === null || loc === ""){
-        ShowFormError("Invalid Location");
-        result = false;
-    }    
+    }  
     return result;
 }
 
